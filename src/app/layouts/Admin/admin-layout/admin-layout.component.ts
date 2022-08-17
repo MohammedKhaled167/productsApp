@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLayoutComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  // cartItems;
+  isMenuCollapsed = true;
+  constructor(  ) {
   }
 
+  ngOnInit() {
+    // this.cartItems = this.cart.cartProductsNumber;
+    // console.log(this.cartItems);
+  }
+  // tslint:disable-next-line: use-lifecycle-interface
+  ngDoCheck() {
+    // this.cartItems = this.cart.cartProductsNumber;
+    // console.log( this.cart.cartProducts );
+    // console.log( this.cart.cartProductsNumber );
+  }
+  logout() {
+    // this.cart.emptyCart();
+    // this.auth.signOut();
+  }
 }
