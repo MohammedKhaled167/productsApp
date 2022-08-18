@@ -2,3 +2,10 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+body { margin: 0;
+  font-family: 'Cairo' , sans-serif  !important;
+}
+
+h1, h2, h3, h4, h5, h6 , p , span , button, a {
+  font-family: 'Cairo' , sans-serif !important;
+}

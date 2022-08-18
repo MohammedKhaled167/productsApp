@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       console.log('Token Data ', data)
     })
 
-    // this.router.navigate(['/home']);
+    this.router.navigate(['/home']);
   }
 
 }

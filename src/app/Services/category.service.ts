@@ -1,11 +1,8 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, shareReplay, catchError, throwError } from 'rxjs';
+import { Observable, catchError, throwError, shareReplay } from 'rxjs';
 import { environment } from 'src/environments/environment';
-
-
-
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,7 +12,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService {
+export class CategoryService {
 
   readonly BaseUrl = environment.BaseUrl;
   apiUrlTable = 'products';
@@ -23,30 +20,23 @@ export class ProductsService {
 
   constructor(private httpClient: HttpClient) { }
 
-  // Get All
-  GetAll(): Observable<any> {
-    return this.httpClient.get(this.BaseUrl + this.apiUrlTable)
-      .pipe(
-        shareReplay(),
-        catchError(this.handleError)
-      );
-  }
+ // Get All
+ GetAll(): Observable<any> {
+  return this.httpClient.get(this.BaseUrl + this.apiUrlTable + '/categories')
+  .pipe(
+    shareReplay(),
+    catchError(this.handleError)
+  );
+}
 
-  Getasingleproduct(id: any) {
-    return this.httpClient.get(`${this.BaseUrl + this.apiUrlTable}/${id}`)
-      .pipe(
-        shareReplay(),
-        catchError(this.handleError)
-      );
-  }
+// Get by ID
+Getproductsinaspecificcategory(id: any): Observable<any> {
+  return this.httpClient.get(`${this.BaseUrl + this.apiUrlTable + '/category'}/${id}`).pipe(
+    shareReplay(),
+    catchError(this.handleError)
+  );
+}
 
-  AddProduct(data: any) {
-    return this.httpClient.post(this.BaseUrl + this.apiUrlTable, JSON.stringify(data), httpOptions)
-      .pipe(
-        shareReplay(),
-        catchError(this.handleError)
-      );
-  }
 
   // Handle API errors << You Can Add this Function as an Interceptor >>
   handleError(error: HttpErrorResponse) {
