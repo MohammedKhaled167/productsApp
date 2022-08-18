@@ -2,6 +2,7 @@ import { AuthCompComponent } from './layouts/Auth/auth-comp/auth-comp.component'
 import { AdminLayoutComponent } from './layouts/Admin/admin-layout/admin-layout.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuardGuard } from './Services/Guards/auth-guard.guard';
 
 const routes: Routes = [
 
@@ -15,7 +16,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('src/app/layouts/Admin/admin-layout-module/admin-layout.module').then(m => m.AdminLayoutModule)
+        loadChildren: () => import('src/app/layouts/Admin/admin-layout-module/admin-layout.module').then(m => m.AdminLayoutModule),
+        canActivate: [AuthGuardGuard]
       }
     ]
   }, {
@@ -29,7 +31,7 @@ const routes: Routes = [
     ]
   }, {
     path: '**',
-    redirectTo: 'dashboard'
+    redirectTo: 'login',
   }
 
 

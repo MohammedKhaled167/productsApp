@@ -33,9 +33,12 @@ export class LoginComponent implements OnInit {
 
     this.authSer.signIn(Login).subscribe((data) => {
       console.log('Token Data ', data)
+      this.authSer.isLoggedIn = true;
+      sessionStorage.setItem('isLoggedIn', 'true');
+      this.router.navigate(['/home']);
+
     })
 
-    this.router.navigate(['/home']);
   }
 
 }

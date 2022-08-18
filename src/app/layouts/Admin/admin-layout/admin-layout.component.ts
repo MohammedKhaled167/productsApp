@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-admin-layout',
@@ -7,23 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLayoutComponent implements OnInit {
 
-  // cartItems;
   isMenuCollapsed = true;
-  constructor(  ) {
+  constructor(private Auth: AuthService) {
   }
 
   ngOnInit() {
-    // this.cartItems = this.cart.cartProductsNumber;
-    // console.log(this.cartItems);
-  }
-  // tslint:disable-next-line: use-lifecycle-interface
-  ngDoCheck() {
-    // this.cartItems = this.cart.cartProductsNumber;
-    // console.log( this.cart.cartProducts );
-    // console.log( this.cart.cartProductsNumber );
   }
   logout() {
-    // this.cart.emptyCart();
-    // this.auth.signOut();
-  }
+    this.Auth.signout();
+    }
 }

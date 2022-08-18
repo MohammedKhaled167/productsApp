@@ -8,12 +8,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminLayoutComponent } from './layouts/Admin/admin-layout/admin-layout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NavbarComponent } from './Core/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthCompComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

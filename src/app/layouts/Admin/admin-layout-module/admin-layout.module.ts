@@ -16,7 +16,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
-    NavbarComponent,
     FooterComponent,
     ProductsComponent,
     ProductDetailsComponent,
